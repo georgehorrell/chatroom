@@ -1,6 +1,8 @@
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var http = require('http');
+var express = require('express');
+var path = require('path');
+
+var app = express();
 var chance = require('chance').Chance();
 
 String.prototype.capitalize = function() {
@@ -8,13 +10,18 @@ String.prototype.capitalize = function() {
 }
 
 app.get('/', function(req, res) {
-	res.sendFile(__dirname + '/index.html');
+	res.sendFile(__dirname + '/views/index.html');
 });
+
+app.use(express.static(path.join(__dirname + '/public')));
+
+var server = http.createServer(app);
+var io = require('socket.io')(server);
 
 var prevSender = "";
 
 io.on('connection', function(socket) {
-	var id = socket.id;
+    var id = socket.id;
 	var username = chance.word();
 	console.log('connection: ', id);
 	socket.on('chat message', function(msg) {
@@ -33,6 +40,7 @@ io.on('connection', function(socket) {
 	
 });
 
-http.listen(8081, function() {
-	console.log('listening on *:8081');
+
+server.listen(8081, function() {
+    console.log('listening on *:8081');
 });
