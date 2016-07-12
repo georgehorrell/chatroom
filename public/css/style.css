@@ -27,6 +27,7 @@ body { height: 100%; font: 13px Helvetica, Arial; overflow: hidden; }
     border-radius: 12px;
     background: #73AD21;
     display:inline-block;
+    color: white; 
 }
 #messages p { font-weight: bold; }
 ::-webkit-scrollbar { width:0; }

@@ -1,3 +1,4 @@
+var port = 8081;
 var http = require('http');
 var express = require('express');
 var path = require('path');
@@ -40,6 +41,6 @@ io.on('connection', function(socket) {
 	
 });
 
-server.listen(8081, function() {
-    console.log('listening on *:8081');
+server.listen(port, function() {
+    console.log('listening on *:' + port);
 });
