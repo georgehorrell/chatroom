@@ -21,7 +21,13 @@ body { height: 100%; font: 13px Helvetica, Arial; overflow: hidden; }
 	list-style-type: none; 
 	padding: 5px; 
 }
-#messages li { padding: 5px 10px; }
+#messages li {
+    margin: 2px;
+    padding: 8px; 
+    border-radius: 12px;
+    background: #73AD21;
+    display:inline-block;
+}
 #messages p { font-weight: bold; }
 ::-webkit-scrollbar { width:0; }
 form { background: #000; padding: 3px; position: absolute; bottom: 0; width: 100%; }

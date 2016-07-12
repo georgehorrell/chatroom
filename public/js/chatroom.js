@@ -14,5 +14,6 @@ socket.on('new sender', function(sender) {
 });
 socket.on('chat message', function(msg) {
 	$('#messages').append($('<li>').text(msg));
-	updateScroll();	
+	$('#messages').append($('<br />'));
+    updateScroll();	
 });
